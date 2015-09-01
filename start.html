@@ -38,24 +38,60 @@ reseting the form to try again
 
 <body>
     <div id="inputPanel">
-        <h3>A few questions for you</h3>
-        <p>A first name:
-            <input id="firstName" type="text" placeholder="first name">
+        <h3>Let's get to know you!</h3>
+        <p>Your Gender:
+            <input id="gender" type="text" placeholder="boy/girl">
         </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
+        <p>Your First Name:
+            <input id="firstName" type="text" placeholder="your first name">
         </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
+        <p>School Object 2:
+            <input id="schoolObject1" type="text" placeholder="school object 1">
         </p>
-        <button id="submit">Submit your answers</button>
-        <p id="warning">Please answer all questions.</p>
+        <p>School Object 2:
+            <input id="schoolObject2" type="text" placeholder="school object 2">
+        </p>
+        <p>Color:
+            <input id="color" type="text" placeholder="color">
+        </p>
+         <p>Animal:
+            <input id="animal1" type="text" placeholder="animal 1">
+        </p>
+          <p>Name:
+            <input id="petName" type="text" placeholder="name">
+        </p>
+        <p>Another Animal:
+            <input id="animal2" type="text" placeholder="animal 2">
+        </p>
+         <p>Flavor:
+            <input id="flavor1" type="text" placeholder="flavor 1">
+        </p>
+          <p>Another Flavor:
+            <input id="flavor2" type="text" placeholder="flavor 2">
+        </p>
+        <p>Hogwarts House:
+            <input id="house" type="text" placeholder="Gryffindor/Ravenclaw/Hufflepuff/Slytherin">
+        </p>
+         <p>Yet Another Animal:
+            <input id="animal3" type="text" placeholder="animal 3">
+        </p>
+        <p>Object:
+            <input id="object" type="text" placeholder="object">
+        </p>
+         <p>Hogwarts Class Subject:
+            <input id="classSubject" type="text" placeholder="Hogwarts Class Subject">
+        </p>
+
+        <button id="submit">Apparate</button>
+        <p id="warning">Answer all the questions or you're off to the forbidden forest!</p>
 
     </div>
+
+    
     <div id="outputPanel">
-        <p>Your story....</p>
+        <p>Let's go to Hogwarts!</p>
         <p id="theStory">junk</p>
-        <button id="again">Again?</button>
+        <button id="again">Disapparate</button>
     </div>
     <script>
         var inputPanel = document.querySelector("#inputPanel");
@@ -68,12 +104,22 @@ reseting the form to try again
         var again = document.querySelector("#again");
         again.addEventListener("click", resetPage, false);
 
-        document.querySelector('#firstName').focus();
+        document.querySelector('#gender').focus();
 
+        var gender = document.querySelector('#gender');
         var firstName = document.querySelector('#firstName');
-        var favColor = document.querySelector("#favColor");
-        var place = document.querySelector('#place');
-        var theStory = document.querySelector("#theStory");
+        var schoolObject1 = document.querySelector("#schoolObject1");
+        var schoolObject2 = document.querySelector("#schoolObject2");
+        var color = document.querySelector('#color');
+        var animal1 = document.querySelector("#animal1");
+        var petName = document.querySelector("#petName");
+        var animal2 = document.querySelector("#animal2");
+        var flavor1 = document.querySelector("#flavor1");
+        var flavor2 = document.querySelector("#flavor2");
+        var house = document.querySelector("#house");
+        var animal3 = document.querySelector("#animal3");
+        var object = document.querySelector("#object");
+        var classSubject = document.querySelector("#classSubject");
 
         window.addEventListener("keydown", keydownHandler, false);
 
@@ -89,6 +135,13 @@ reseting the form to try again
 
         function writeStory() {
             //grab the input values to write the story
+            theStory.innerHTML = 
+
+            "Once there was a young " + gender.value + "named " + yourName.value +". " gender.value + " was a wizard! One day, an owl came with a letter for " + yourName.value + ". It said, ‘Please come to Hogwarts and learn magic. You will need " + schoolObject1.value + " and " + schoolObject2.value ", and you may bring one pet. Your ticket for the Hogwarts Express is enclosed." 
+
+            + yourName.value + " went to Diagon Alley and brought a " + color.value + animal1.value. +gender.value + " name it" + petName.value + ". Then it was time to go to Hogwarts. On the Howarts Express," + yourName.value + " got some wizard candy. There were chocolate " + animal2.value + " and " + flavor1.value " pasties, and even Bertie Bott’s every flavor beans! The flavor " + yourName.value + " got was " + flavor2.value + " Yum!
+
+            At Hogwarts the Sorting Hat put " + yourName.value + " in " + house.value + ". Then it was time to learn some magic! The teachers taught everyone how to turn" + animal3.value + "s into " + object.value + "s, make things float in the air, and take care of magical animals. " + yourName.value + "’s favorite class was " classSubject.value + "." + yourName.value + " and " + petName.value + "love being at Hogwarts!"
 
        }
 
