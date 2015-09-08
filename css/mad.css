@@ -1,0 +1,63 @@
+div {   
+    /*border: 1px solid red;
+    background-color: #000;*/
+}
+
+ .displayNone {
+    display: none;
+}
+
+ .displayBlock {
+    display: block;
+}
+
+@font-face {
+    font-family: 'Harry';
+    src: url("../fonts/HARRY.ttf");
+}
+
+body {
+    background-image: url("../img/hogwarts.jpg");
+    background-position: right bottom; 
+    background-repeat: no-repeat; 
+    background-color: #fff;
+}
+
+h1 {
+    font-family: 'Harry';
+    padding-left: 10px;
+    color: #ae0001;
+}
+
+p {
+    font-family: sans-serif;
+    padding-right: 10px;
+}
+
+tr {
+    font-family: sans-serif;
+}
+
+td {
+    padding: 5px 10px;
+}
+
+input {
+    width: 350px;
+}
+
+button {
+    background: #eeba30;
+    color: #fff;
+    font-family: Sans-serif;
+    font-size: 120%;
+    height: 50px;
+    width: 120px;
+    text-align: center;
+    border: 0;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background: #d3a625;
+}
