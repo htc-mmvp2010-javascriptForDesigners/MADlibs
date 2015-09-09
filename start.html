@@ -129,22 +129,18 @@ reseting the form to try again
             //verify the user filled in the form
 
         }
-
-        function writeStory() {
+function writeStory() {
             //grab the input values to write the story
-
-            var output = document.querySelector("#output");
+            // var output = document.querySelector("#output");
             // output.innerHTML = "Hello World!";
-
-            output.innerHTML = 
-             "Once there was a young " + gender.value + "named " + yourName.value + ". " + gender.value + " was a wizard! One day, an owl came with a letter for " + yourName.value + ". It said, ‘Please come to Hogwarts and learn magic. You will need " + schoolObject1.value + " and " + schoolObject2.value + ", and you may bring one pet. Your ticket for the Hogwarts Express is enclosed.'" 
-
-             + yourName.value + " went to Diagon Alley and brought a " + color.value + animal1.value + gender.value + 
-             " name it" + petName.value + ". Then it was time to go to Hogwarts. On the Howarts Express," + yourName.value + " got some wizard candy. There were chocolate " + animal2.value + " and " + flavor1.value + " pasties, and even Bertie Bott’s every flavor beans! The flavor " + yourName.value + " got was " + flavor2.value + " Yum!
-
-             At Hogwarts the Sorting Hat put " + yourName.value + " in " + house.value + ". Then it was time to learn some magic! The teachers taught everyone how to turn" + animal3.value + "s into " + object.value + "s, make things float in the air, and take care of magical animals. " + yourName.value + "’s favorite class was " +classSubject.value + "." + yourName.value + " and " + petName.value + "love being at Hogwarts!";
+            outputPanel.innerHTML = 
+             "Once there was a young " + gender.value;
+             // + "named " + yourName.value + ". " + gender.value + " was a wizard! One day, an owl came with a letter for " + yourName.value + ". It said, ‘Please come to Hogwarts and learn magic. You will need " + schoolObject1.value + " and " + schoolObject2.value + ", and you may bring one pet. Your ticket for the Hogwarts Express is enclosed.'" 
+             // + yourName.value + " went to Diagon Alley and brought a " + color.value + animal1.value + gender.value + 
+             // " name it" + petName.value + ". Then it was time to go to Hogwarts. On the Howarts Express," + yourName.value + " got some wizard candy. There were chocolate " + animal2.value + " and " + flavor1.value + " pasties, and even Bertie Bott’s every flavor beans! The flavor " + yourName.value + " got was " + flavor2.value + " Yum!
+             // At Hogwarts the Sorting Hat put " + yourName.value + " in " + house.value + ". Then it was time to learn some magic! The teachers taught everyone how to turn" + animal3.value + "s into " + object.value + "s, make things float in the air, and take care of magical animals. " + yourName.value + "’s favorite class was " +classSubject.value + "." + yourName.value + " and " + petName.value + "love being at Hogwarts!";
        }
-
+       
         function resetPage() {
             //put stuff here to reset the page so the user can try again
 
