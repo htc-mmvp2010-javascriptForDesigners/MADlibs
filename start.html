@@ -23,9 +23,18 @@ reseting the form to try again
     <title>Master MadLib</title>
     <meta charset="UTF-8">
     <style>
-        div {
-            border: 1px solid red;
-            background-color: #c7af90;
+        body {
+            background-color: rgb(100,100,100);
+                       background-color: rgb(100,100,100);
+            background-image: url("universewhite.png");
+            background-repeat: no-repeat;
+            background-position: right top;
+    color: white;
+        }
+#inputPanel {
+        padding: 0px 0px 0px 25px;
+ 
+           
         }
         .displayNone {
             display: none;
@@ -33,28 +42,94 @@ reseting the form to try again
         .displayBlock {
             display: block;
         }
+        
+button{
+    border-style: none;
+    color: white;
+    background-color: #5FF293;
+    font-family: "2Dumb";
+    font-size: 12pt;
+    padding: 5px 17px 5px 17px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+        
+#outputPanel {
+            border: ;
+            background-color: rgba(255,255,255,.1);
+
+           
+        }
+        
+h3 {
+    font-family: "2Dumb";
+    font-size: 25pt;
+    color: white;
+}
+        
+p {
+    font-family: "2Dumb";
+    font-size: 12pt;
+}
+        
+#storytitle {
+    font-family: "2Dumb";
+    font-size: 25pt;
+    color: white;
+}
    </style>
 </head>
 
 <body>
+
     <div id="inputPanel">
-        <h3>A few questions for you</h3>
-        <p>A first name:
+        <h3>A few questions for you...</h3>
+        <p>Your first name:
             <input id="firstName" type="text" placeholder="first name">
         </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
+        <p>Your last name:
+            <input id="lastName" type="text" placeholder="last name">
         </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
+        <p>Verb (Present Participle):
+            <input id="verb1" type="text" placeholder="verb (present participle)">
         </p>
-        <button id="submit">Submit your answers</button>
-        <p id="warning">Please answer all questions.</p>
+        <p>Noun (Plural):
+            <input id="noun1" type="text" placeholder="noun (plural)">
+        </p>
+        
+               <p>Another Noun:
+            <input id="noun2" type="text" placeholder="noun">
+        </p>
+        
+               <p>Verb:
+            <input id="verb2" type="text" placeholder="verb">
+        </p>
+        
+               <p>Adverb:
+            <input id="adverb1" type="text" placeholder="adverb">
+        </p>
+        
+               <p>Noun (Plural):
+            <input id="noun3" type="text" placeholder="noun (plural)">
+        </p>
+        
+               <p>Yet another noun (Plural):
+            <input id="noun4" type="text" placeholder="noun (plural)">
+        </p>
+        
+               <p>Verb (Present Participle):
+            <input id="verb3" type="text" placeholder="verb">
+        </p>
+        
+              <p id="warning">*Please fill in all fields.</p>    
+        <button id="submit">Submit</button>
+    
 
     </div>
     <div id="outputPanel">
-        <p>Your story....</p>
-        <p id="theStory">junk</p>
+        <p id="storytitle">Your Story...</p>
+        <p id="theStory"></p>
         <button id="again">Again?</button>
     </div>
     <script>
@@ -71,8 +146,15 @@ reseting the form to try again
         document.querySelector('#firstName').focus();
 
         var firstName = document.querySelector('#firstName');
-        var favColor = document.querySelector("#favColor");
-        var place = document.querySelector('#place');
+        var lastName = document.querySelector('#lastName');
+        var verb1 = document.querySelector("#verb1");
+        var noun1 = document.querySelector('#noun1');
+        var noun2 = document.querySelector('#noun2');
+        var verb2 = document.querySelector('#verb2');
+        var adverb1 = document.querySelector('#adverb1');
+        var noun3 = document.querySelector('#noun3');
+        var noun4 = document.querySelector('#noun4');
+        var verb3 = document.querySelector('#verb3');
         var theStory = document.querySelector("#theStory");
 
         window.addEventListener("keydown", keydownHandler, false);
@@ -88,11 +170,26 @@ reseting the form to try again
         }
 
         function writeStory() {
+            theStory.innerHTML= firstName.value + " " + lastName.value + "'s amazing rendition of Across The Universe by The Beatles: <br><br> Words are " + verb1.value + " out like endless " + noun1.value + " into a " + noun2.value + "<br> They " + verb2.value + " " + adverb1.value + " as they slip away across the universe. <br> Pools of " + noun3.value + " waves of " + noun4.value + " are drifting through my opened mind, possessing and " + verb3.value + " me. <br>Jai Guru Deva OM, Nothing's gonna change my world";
+
             //grab the input values to write the story
 
        }
 
         function resetPage() {
+            theStory.innerHTML = "";
+            firstName.value="";
+            lastName.value="";
+            noun1.value="";
+            noun2.value="";
+            noun3.value="";
+            noun4.value="";
+            verb1.value="";
+            verb2.value="";
+            verb3.value="";
+            adverb1.value="";
+            
+            
             //put stuff here to reset the page so the user can try again
 
         }
@@ -100,4 +197,16 @@ reseting the form to try again
 </body>
 
 </html>
+
+<!--
+LYRICS 
+Words are flowing out like endless rain into a paper cup
+They slither wildly as they slip away across the universe
+Pools of sorrow, waves of joy are drifting through my opened mind
+Possessing and caressing me
+Jai Guru Deva OM
+
+Nothing's gonna change my world 
+-->
+
 
