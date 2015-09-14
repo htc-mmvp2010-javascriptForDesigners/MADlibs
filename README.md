@@ -3,8 +3,8 @@ Entertaining interactive word plays
 
 You should already have cloned the repo to your local system. Now checkout the current branch.
 
-git checkout step2-toggleClasses
+git checkout step3-addEnterKeyAndReset
 
-Step 2:
+Step 3:
 
-Toggle classes with javascript to control the display of which panel, input or story, is shown.
+Capture the enter key to call writeStory as additional method besides clicking the button. Finish reset of form with the again button.

@@ -83,8 +83,10 @@ reseting the form to try again
         warning.className = "displayNone";
 
         function keydownHandler(event) {
+            if (event.keyCode === 13) {
                 console.log("Enter key pressed");
-
+                writeStory();
+            }        
         }
 
         function checkComplete() {
@@ -111,6 +113,12 @@ reseting the form to try again
 
         function resetPage() {
             //put stuff here to reset the page so the user can try again
+
+            inputPanel.className = "displayBlock";
+            outputPanel.className = "displayNone";
+            firstName.value = "";
+            favColor.value = "";
+            place.value = "";
 
         }
     </script>
