@@ -91,22 +91,45 @@ reseting the form to try again
 
         function checkComplete() {
             //verify the user filled in the form
-
+            //calling this function returns either boolean
+            //if the validation is complete we get TRUE
+            //otherwise it returns a FALSE value
+            
+            //alerts are the easy way
+            if (firstName.value == ""){
+                alert("Name?");
+                return false;
+            }else if (favColor.value == ""){
+                alert("Color?");
+                return false;
+            }else if (place.value == ""){
+                alert("Place?");
+                return false;
+            }else {
+                return true;
+            }
         }
 
         function writeStory() {
-            //grab the input values to write the story
-            //setting finishedStory to an empty string will guarantee
-            //it shows up empty each time the user enters a story
-            var finishedStory = "";
-            finishedStory += "<p>Welcome, " + firstName.value + ". ";
-            finishedStory += "Only silly people would choose " + favColor.value + " as their favorite color.</p>";
-            finishedStory += "<p>It sounds like " + place.value + " would be a fantastic place to visit.</p>";
-            //do not add too many items in a single line or the code likes to break
-            theStory.innerHTML = finishedStory;
+            //verify the form before writing the story
+            if (checkComplete() == true){//remember checkComplete is the form validation
+                //grab the input values to write the story
+                //setting finishedStory to an empty string will guarantee
+                //it shows up empty each time the user enters a story
+                var finishedStory = "";
+                finishedStory += "<p>Welcome, " + firstName.value + ". ";
+                finishedStory += "Only silly people would choose " + favColor.value + " as their favorite color.</p>";
+                finishedStory += "<p>It sounds like " + place.value + " would be a fantastic place to visit.</p>";
+                //do not add too many items in a single line or the code likes to break
+                theStory.innerHTML = finishedStory;
 
-        inputPanel.className = "displayNone";
-        outputPanel.className = "displayBlock";
+                inputPanel.className = "displayNone";
+                outputPanel.className = "displayBlock";
+
+            }else {
+                console.log("the form was not complete");
+
+            }
 
 
        }
