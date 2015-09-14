@@ -63,10 +63,14 @@ reseting the form to try again
         var warning = document.querySelector("#warning");
 
         var submit = document.querySelector("#submit");
+        submit.style.cursor = "pointer";
+
         submit.addEventListener("click", writeStory, false);
 
         var again = document.querySelector("#again");
         again.addEventListener("click", resetPage, false);
+        again.style.cursor = "pointer";
+
 
         document.querySelector('#firstName').focus();
 
@@ -76,6 +80,8 @@ reseting the form to try again
         var theStory = document.querySelector("#theStory");
 
         window.addEventListener("keydown", keydownHandler, false);
+
+        firstName.focus();
 
         //set the initial display of panels.
         inputPanel.className = "displayBlock";
@@ -94,20 +100,32 @@ reseting the form to try again
             //calling this function returns either boolean
             //if the validation is complete we get TRUE
             //otherwise it returns a FALSE value
-            
+
             //alerts are the easy way
+            //we could just toggle the warning paragraph
+            //or you could provide the details to the user
+            //as to which inputs were missing
+
+            var warningText = "Please provide: ";
+            var warningArray = [];
             if (firstName.value == ""){
-                alert("Name?");
-                return false;
-            }else if (favColor.value == ""){
-                alert("Color?");
-                return false;
-            }else if (place.value == ""){
-                alert("Place?");
+                 warningArray.push("Name");
+            }
+            if (favColor.value == ""){
+                warningArray.push("Color");
+            }
+            if (place.value == ""){
+                warningArray.push("Place");
+            }
+            if (warningArray.length !== 0){
+                //join prints out the array with the specified delimiter
+                warningText += warningArray.join(", ");
+                warning.innerHTML = warningText;
                 return false;
             }else {
                 return true;
             }
+
         }
 
         function writeStory() {
@@ -125,10 +143,11 @@ reseting the form to try again
 
                 inputPanel.className = "displayNone";
                 outputPanel.className = "displayBlock";
+                warning.className = "displayNone";
 
             }else {
                 console.log("the form was not complete");
-
+                warning.className = "displayBlock";
             }
 
 
@@ -139,9 +158,13 @@ reseting the form to try again
 
             inputPanel.className = "displayBlock";
             outputPanel.className = "displayNone";
+            warning.className = "displayNone";
             firstName.value = "";
             favColor.value = "";
             place.value = "";
+
+            firstName.focus();
+
 
         }
     </script>
