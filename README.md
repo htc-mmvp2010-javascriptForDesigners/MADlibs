@@ -3,7 +3,7 @@ Entertaining interactive word plays
 
 You should already have cloned the repo to your local system. Now checkout the current branch.
 
-git checkout step4-differentValidationAndMore
+git checkout step5-differentValidationAndMore
 
 Step 5:
 
