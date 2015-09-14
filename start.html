@@ -89,6 +89,12 @@ reseting the form to try again
 
         function writeStory() {
             //grab the input values to write the story
+            var finishedStory;
+            finishedStory += "<p>Welcome, " + firstName.value + ". ";
+            finishedStory += "Only silly people would choose " + favColor.value + " as their favorite color.</p>";
+            finishedStory += "<p>It sounds like " + place.value + " would be a fantastic place to visit.</p>";
+            //do not add too many items in a single line or the code likes to break
+            theStory.innerHTML = finishedStory;
 
        }
 
