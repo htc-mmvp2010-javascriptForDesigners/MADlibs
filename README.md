@@ -1,13 +1,10 @@
 # MADlibs
 Entertaining interactive word plays
 
-Clone the CLASS (not your repo this time) repo.
-Then you will check out the current branch.
-If you do not want to have to think too much just paste the next two lines into terminal.
+You should already have cloned the repo to your local system. Now checkout the current branch.
 
-git clone https://github.com/htc-mmvp2010-javascriptForDesigners/MADlibs.git
+git checkout step2-toggleClasses
 
-git checkout step1-usingInputsToWriteStory
+Step 2:
 
-Step 1:
-Capturing and using the input elements to start writing the story.
+Toggle classes with javascript to control the display of which panel, input or story, is shown.

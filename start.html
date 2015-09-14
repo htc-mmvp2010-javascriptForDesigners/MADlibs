@@ -77,6 +77,11 @@ reseting the form to try again
 
         window.addEventListener("keydown", keydownHandler, false);
 
+        //set the initial display of panels.
+        inputPanel.className = "displayBlock";
+        outputPanel.className = "displayNone";
+        warning.className = "displayNone";
+
         function keydownHandler(event) {
                 console.log("Enter key pressed");
 
@@ -89,12 +94,18 @@ reseting the form to try again
 
         function writeStory() {
             //grab the input values to write the story
-            var finishedStory;
+            //setting finishedStory to an empty string will guarantee
+            //it shows up empty each time the user enters a story
+            var finishedStory = "";
             finishedStory += "<p>Welcome, " + firstName.value + ". ";
             finishedStory += "Only silly people would choose " + favColor.value + " as their favorite color.</p>";
             finishedStory += "<p>It sounds like " + place.value + " would be a fantastic place to visit.</p>";
             //do not add too many items in a single line or the code likes to break
             theStory.innerHTML = finishedStory;
+
+        inputPanel.className = "displayNone";
+        outputPanel.className = "displayBlock";
+
 
        }
 
