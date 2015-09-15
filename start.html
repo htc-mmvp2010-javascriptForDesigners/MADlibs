@@ -15,7 +15,6 @@ cursor pointer
 preventing empty inputs
 reseting the form to try again
 -->
-
 <!DOCTYPE html>
 <html>
 
@@ -30,125 +29,100 @@ reseting the form to try again
     <div id="inputPanel">
         <h1>Let's Go To Hogwarts!</h1>
         <table>
-        <tr><td>Your Gender</td>
-            <td><input id="gender" type="text" placeholder="boy/girl"></td>
-        </tr>
-        <tr><td>Your First Name</td>
-            <td><input id="firstName" type="text" placeholder="your first name"></td>
-        </tr>
-        <tr><td>School Object 2</td>
-            <td><input id="schoolObject1" type="text" placeholder="school object 1"></td>
-        </tr>
-        <tr><td>School Object 2</td>
-            <td><input id="schoolObject2" type="text" placeholder="school object 2"></td>
-        </tr>
-        <td>Color</td>
-            <td><input id="color" type="text" placeholder="color"></td>
-        </tr>
-        <tr>
-         <td>Animal</td>
-            <td><input id="animal1" type="text" placeholder="animal 1"></td>
-        </tr>
-          <tr><td>Name</td>
-            <td><input id="petName" type="text" placeholder="name"></td>
-        </tr>
-        <tr><td>Another Animal</td>
-            <td><input id="animal2" type="text" placeholder="animal 2"></td>
-        </tr>
-         <tr><td>Flavor</td>
-            <td><input id="flavor1" type="text" placeholder="flavor 1"></td>
-        </tr>
-          <tr><td>Another Flavor</td>
-            <td><input id="flavor2" type="text" placeholder="flavor 2"></td>
-        </tr>
-        <tr><td>Hogwarts House</td>
-            <td><input id="house" type="text" placeholder="Gryffindor/Ravenclaw/Hufflepuff/Slytherin"></td>
-        </tr>
-         <tr><td>Yet Another Animal</td>
-            <td><input id="animal3" type="text" placeholder="animal 3"></td>
-        </tr>
-        <tr><td>Object</td>
-            <td><input id="object" type="text" placeholder="object"></td>
-        </tr>
-         <tr><td>Hogwarts Class Subject</td>
-            <td><input id="classSubject" type="text" placeholder="Hogwarts class subject"></td>
-        </tr>
+            <tr>
+                <td>Your Gender</td>
+                <td>
+                    <input id="gender" type="text" placeholder="boy/girl">
+                </td>
+            </tr>
+            <tr>
+                <td>Your First Name</td>
+                <td>
+                    <input id="firstName" type="text" placeholder="your first name">
+                </td>
+            </tr>
+            <tr>
+                <td>School Object 1</td>
+                <td>
+                    <input id="schoolObject1" type="text" placeholder="school object 1">
+                </td>
+            </tr>
+            <tr>
+                <td>School Object 2</td>
+                <td>
+                    <input id="schoolObject2" type="text" placeholder="school object 2">
+                </td>
+            </tr>
+            <td>Color</td>
+            <td>
+                <input id="color" type="text" placeholder="color">
+            </td>
+            </tr>
+            <tr>
+                <td>Animal</td>
+                <td>
+                    <input id="animal1" type="text" placeholder="animal 1">
+                </td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input id="petName" type="text" placeholder="name">
+                </td>
+            </tr>
+            <tr>
+                <td>Another Animal</td>
+                <td>
+                    <input id="animal2" type="text" placeholder="animal 2">
+                </td>
+            </tr>
+            <tr>
+                <td>Flavor</td>
+                <td>
+                    <input id="flavor1" type="text" placeholder="flavor 1">
+                </td>
+            </tr>
+            <tr>
+                <td>Another Flavor</td>
+                <td>
+                    <input id="flavor2" type="text" placeholder="flavor 2">
+                </td>
+            </tr>
+            <tr>
+                <td>Hogwarts House</td>
+                <td>
+                    <input id="house" type="text" placeholder="Gryffindor/Ravenclaw/Hufflepuff/Slytherin">
+                </td>
+            </tr>
+            <tr>
+                <td>Yet Another Animal</td>
+                <td>
+                    <input id="animal3" type="text" placeholder="animal 3">
+                </td>
+            </tr>
+            <tr>
+                <td>Object</td>
+                <td>
+                    <input id="object" type="text" placeholder="object">
+                </td>
+            </tr>
+            <tr>
+                <td>Hogwarts Class Subject</td>
+                <td>
+                    <input id="classSubject" type="text" placeholder="Hogwarts class subject">
+                </td>
+            </tr>
         </table>
-
-        
-
         <button class="btn hvr-grow" id="submit">Apparate</button>
         <p id="warning">Answer all the questions or you're off to the forbidden forest!</p>
-
     </div>
-
-
     <div id="outputPanel">
         <h1>Welcome to Hogwarts!</h1>
         <p id="theStory">junk</p>
         <button class="btn hvr-grow" id="again">Disapparate</button>
     </div>
-
-    <script>
-        var inputPanel = document.querySelector("#inputPanel");
-        var outputPanel = document.querySelector("#outputPanel");
-        var warning = document.querySelector("#warning");
-
-        var submit = document.querySelector("#submit");
-        submit.addEventListener("click", writeStory, false);
-
-        var again = document.querySelector("#again");
-        again.addEventListener("click", resetPage, false);
-
-        document.querySelector('#gender').focus();
-
-        var gender = document.querySelector('#gender');
-        var firstName = document.querySelector('#firstName');
-        var schoolObject1 = document.querySelector('#schoolObject1');
-        var schoolObject2 = document.querySelector('#schoolObject2');
-        var color = document.querySelector('#color');
-        var animal1 = document.querySelector('#animal1');
-        var petName = document.querySelector('#petName');
-        var animal2 = document.querySelector('#animal2');
-        var flavor1 = document.querySelector('#flavor1');
-        var flavor2 = document.querySelector('#flavor2');
-        var house = document.querySelector('#house');
-        var animal3 = document.querySelector('#animal3');
-        var object = document.querySelector('#object');
-        var classSubject = document.querySelector('#classSubject');
-
-        var theStory = document.querySelector("#theStory");
-
-        window.addEventListener("keydown", keydownHandler, false);
-
-        function keydownHandler(event) {
-                console.log("Enter key pressed");
-
-        }
-
-        function checkComplete() {
-            //verify the user filled in the form
-
-        }
-function writeStory() {
-            //grab the input values to write the story
-            // var output = document.querySelector("#output");
-            // output.innerHTML = "Hello World!";
-            outputPanel.innerHTML = 
-             "Once there was a young " + gender.value;
-             // + "named " + yourName.value + ". " + gender.value + " was a wizard! One day, an owl came with a letter for " + yourName.value + ". It said, ‘Please come to Hogwarts and learn magic. You will need " + schoolObject1.value + " and " + schoolObject2.value + ", and you may bring one pet. Your ticket for the Hogwarts Express is enclosed.'" 
-             // + yourName.value + " went to Diagon Alley and brought a " + color.value + animal1.value + gender.value + 
-             // " name it" + petName.value + ". Then it was time to go to Hogwarts. On the Howarts Express," + yourName.value + " got some wizard candy. There were chocolate " + animal2.value + " and " + flavor1.value + " pasties, and even Bertie Bott’s every flavor beans! The flavor " + yourName.value + " got was " + flavor2.value + " Yum!
-             // At Hogwarts the Sorting Hat put " + yourName.value + " in " + house.value + ". Then it was time to learn some magic! The teachers taught everyone how to turn" + animal3.value + "s into " + object.value + "s, make things float in the air, and take care of magical animals. " + yourName.value + "’s favorite class was " +classSubject.value + "." + yourName.value + " and " + petName.value + "love being at Hogwarts!";
-       }
-       
-        function resetPage() {
-            //put stuff here to reset the page so the user can try again
-
-        }
-
-    </script>
+    <div id="bgimg"><img src="img/hogwarts.jpg" /></div>
 </body>
+<script src="js/mad.js"></script>
 
 </html>
-
