@@ -46,6 +46,11 @@
      width: 350px;
  }
  
+ #inputPanel {
+    z-index: 20;
+    position: relative;
+ }
+
  #bgimg {
      position: fixed;
      right: 0px;
@@ -53,6 +58,7 @@
      width: 700px;
      height: 494px;
      border: none;
+     z-index: 0;
  }
  
  button {
