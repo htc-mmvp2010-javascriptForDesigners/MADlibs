@@ -1,0 +1,45 @@
+/* Mad lib CSS */
+
+
+        body{
+            background-image: url(../img/sht.jpeg);
+           background-repeat: no-repeat;
+    background-position: 450px 150px;
+    background-attachment: fixed;
+margin-left:25px;
+          font-family:"Courier New", Courier, monospace;
+
+            background-color: white;
+            color: black;
+        }
+
+h1 {
+ font: bold 2em/1em "Courier New", Courier, monospace;
+ margin: 0;
+ padding: 0;
+ color: #e7ce00;
+ border-top: solid #e7ce00 medium;
+ border-bottom: dotted #e7ce00 thin;
+ width: 600px;
+ }
+
+
+
+
+        .displayNone {
+            display: none;
+        }
+        .displayBlock {
+            display: block;
+        }
+
+#again {  
+	font-family:"Courier New", Courier, monospace;
+	font-size: 15px;
+}
+
+#submit {font-family:"Courier New", Courier, monospace;
+	font-size: 15px;}
+
+#wrap { text-decoration: underline;}
+
