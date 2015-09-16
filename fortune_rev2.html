@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Master MadLib</title>
+    <meta charset="UTF-8">
+    <style>
+
+               header {
+            border: 3px solid rgb(240, 226,29);
+            background-color: rgb(179, 2, 14);
+            max-width: 960px;
+            margin: 50px 0px 10px 0px;
+        }
+        #inputPanel {
+            border: 3px solid rgb(240, 226,29);
+            background-color: rgb(179, 2, 14);
+            max-width: 660px;
+            margin-left: 50px;
+            padding-left: 300px;
+            font-size: 1.3em;
+        }
+
+        #outputPanel {
+            border: 3px solid rgb(240, 226,29);
+            background-color: rgb(179, 2, 14);
+            max-width: 910px;
+            margin-left: 50px;
+            padding: 20px 25px 20px 25px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+
+       .cookiebar {
+            border: 3px solid rgb(240, 226,29);
+            background-color: rgb(179, 2, 14);
+            max-width: 960px;
+ 
+            font-size: 2em;
+        }
+        .displayNone {
+            display: none;
+        }
+        .displayBlock {
+            display: block;
+        }
+
+   </style>
+
+</head>
+
+<body>
+    <div id="inputPanel">
+        <h3>A few questions for you</h3>
+        <p>A man's first name:
+            <input id="firstName" type="text" placeholder="first name">
+        </p>
+        <p>A profession:
+            <input id="prof" type="text" placeholder="profession">
+        </p>
+        <p>An adjective:
+            <input id="adj1" type="text" placeholder="adjective">
+        </p>
+        <p>A city:
+            <input id="city" type="text" placeholder="city">
+        </p>
+ 
+        <p>An adjective:
+            <input id="adj2" type="text" placeholder="adjective">
+        </p>
+        <p>An adjective:
+            <input id="adj3" type="text" placeholder="adjective">
+        </p>
+        <p>A color:
+            <input id="color1" type="text" placeholder="color">
+        </p>
+
+        <p>A color:
+            <input id="color2" type="text" placeholder="color">
+        </p>
+        <p>An animal:
+            <input id="animal" type="text" placeholder="animal">
+        </p>
+        <p>A female name:
+            <input id="female" type="text" placeholder="female name">
+        </p>
+        <p>A color:
+            <input id="color3" type="text" placeholder="color">
+        </p>
+        <p>A color:
+            <input id="color4" type="text" placeholder="color">
+        </p>
+        <p>An adjective:
+            <input id="adj4" type="text" placeholder="adjective">
+        </p>
+
+        <button id="submit">Submit your answers</button>
+        <p id="warning">Please answer all questions.</p>
+
+    </div>
+
+    <div id="outputPanel">
+
+        <h1><img src="images/dragonheader2.png" width="932" height="432" alt=" Rainbow Dragon"></h1>
+
+        <p>Your story....</p>
+        <p id="theStory">junk</p>
+        <button id="again">Again?</button>
+
+        <h1><img src="images/cookiebar.png" width="932" height="128" alt=" Rainbow Dragon"></h1>
+
+    </div>
+
+    <script>
+        var inputPanel = document.querySelector("#inputPanel");
+        var outputPanel = document.querySelector("#outputPanel");
+        var warning = document.querySelector("#warning");
+        var submit = document.querySelector("#submit");
+        submit.addEventListener("click", writeStory, false);
+        var again = document.querySelector("#again");
+        again.addEventListener("click", resetPage, false);
+        document.querySelector('#firstName').focus();
+
+
+        var firstName = document.querySelector("#firstName");
+        var prof = document.querySelector("#prof");
+        var adj1 = document.querySelector("#adj1 ");
+        var city = document.querySelector("#city ");
+        var adj2 = document.querySelector("#adj2 ");
+        var adj3 = document.querySelector("#adj3 ");
+        var color1 = document.querySelector("#color1 ");
+
+
+
+        var theStory = document.querySelector("#theStory");
+        window.addEventListener("keydown", keydownHandler, false);
+        //set the initial display of panels.
+        inputPanel.className = "displayBlock";
+        outputPanel.className = "displayNone";
+        warning.className = "displayNone";
+        function keydownHandler(event) {
+            if (event.keyCode === 13) {
+                console.log("Enter key pressed");
+                writeStory();
+            }        
+        }
+        function checkComplete() {
+            //verify the user filled in the form
+            //calling this function returns either boolean
+            //if the validation is complete we get TRUE
+            //otherwise it returns a FALSE value
+            
+            //alerts are the easy way
+            if (firstName.value == ""){
+                alert("Name?");
+                return false;
+            }else if (prof.value == ""){
+                alert("Profession?");
+                return false;
+            }else if (adj1.value == ""){
+                alert("Adjective?");
+                return false;
+            }else if (city.value == ""){
+                alert("A City?");
+                return false;
+            }else if (adj2.value == ""){
+                alert("Another Adjective?");
+                return false;
+            }else if (adj3.value == ""){
+                alert("And yet another adjective?");
+                return false;
+            }else if (color1.value == ""){
+                alert("A Color?");
+                return false;
+            }else if (color2.value == ""){
+                alert("Another Color?");
+                return false;
+            }else if (animal.value == ""){
+                alert("An Animal?");
+                return false;
+            }else if (female.value == ""){
+                alert("a female's name?");
+                return false;
+            }else if (color3.value == ""){
+                alert("Another Color?");
+                return false;
+            }else if (color4.value == ""){
+                alert("Another color - be creative!");
+                return false;
+            }else if (adj4.value == ""){
+                alert("Yes, another adjective?");
+                return false;
+
+
+            }else {
+                return true;
+            }
+        }
+
+        function writeStory() {
+            //verify the form before writing the story
+            if (checkComplete() == true){//remember checkComplete is the form validation
+                //grab the input values to write the story
+                //setting finishedStory to an empty string will guarantee
+                //it shows up empty each time the user enters a story
+                var finishedStory = "";
+
+            finishedStory += "<p>Mr. " + firstName.value + " Muggles, a/an " + prof.value + ", was living in a/an " + adj1.value + " apartment in " + city.value + ". Life was relatively safe, but boring. After a particularly " + adj2.value + " day, he decided he was in need of a really " + adj3.value + " meal and stopped by the " + color1.value + " Dragon on his way home.</p>";
+
+            finishedStory += "After finishing his meal, which turned out to be " + color2.value + " fried rice and " + animal.value + " chow mein, his waitress, " + female.value + ", with " + color3.value + " hair and " + color4.value + " eyes, brought him his bill and a fortune cookie. Ripping open the wrapper, he wished for a fortune about great wealth or a better career. He cracked open the " + adj4.value +  " cookie, popped it in his mouth and read his fortune.<br /><br /><em>I cannot help you, for I am simply a cookie</em></p>"
+
+
+                
+                theStory.innerHTML = finishedStory;
+                inputPanel.className = "displayNone";
+                outputPanel.className = "displayBlock";
+
+            }else {
+                console.log("the form was not complete");
+            }
+       }
+        function resetPage() {
+            //put stuff here to reset the page so the user can try again
+            inputPanel.className = "displayBlock";
+            outputPanel.className = "displayNone";
+            firstName.value = "";
+            prof.value = "";
+            adj1.value = "";
+            city.value = "";
+            adj2.value = "";
+            adj3.value = "";
+            color1.value = "";
+            color2.value = "";
+            animal.value = "";
+            female.value = "";
+            color3.value = "";
+            color4.value = "";
+            adj4.value = "";
+        }
+    </script>
+</body>
+
+</html>
