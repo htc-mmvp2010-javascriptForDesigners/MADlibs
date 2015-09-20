@@ -20,41 +20,65 @@ reseting the form to try again
 <html>
 
 <head>
-    <title>Master MadLib</title>
+    <!Author: Stephanie Erven-Meados 2015>
+    <title>Stephanie's MADlib page</title>
     <meta charset="UTF-8">
     <style>
         div {
             border: 1px solid red;
-            background-color: #c7af90;
+            color: yellow;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            line-height: 20px;
+            background-color: deeppink;
+            
         }
         .displayNone {
-            display: none;
+            display: none
         }
         .displayBlock {
             display: block;
+        }
+       div h1 {
+            color: deeppink;
+            font-size: 120px;
+            font-family: Arial Black, Gadget, sans-serif;
+            line-height: 20px;
+            letter-spacing: -5px;
+           word-spacing: -5px;
+            text-align: center;
+        }
+     div div{
+            background: yellow;
+            border: 10pt solid deeppink;
+        }
+        button{
+            border: none;
+             color: deeppink;
+         background-color: yellow;
+            font-size: 30px;
         }
    </style>
 </head>
 
 <body>
     <div id="inputPanel">
-        <h3>A few questions for you</h3>
-        <p>A first name:
-            <input id="firstName" type="text" placeholder="first name">
+        <div><h1>OH MY GOD</h1><h1>BECKY</h1></div>
+        <h3>Like, totally fill out the form...</h3>
+        <p>A kind of bird:
+            <input id="bird" type="text" placeholder="bird type">
         </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
+        <p>A breed of dog:
+            <input id="dogbreed" type="text" placeholder="dog breed">
         </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
-        </p>
-        <button id="submit">Submit your answers</button>
-        <p id="warning">Please answer all questions.</p>
+        
+        <button id="submit">All finished!</button>
+        <p id="warning">Hey, so everyone is waiting on you to finish.</p>
 
     </div>
     <div id="outputPanel">
-        <p>Your story....</p>
-        <p id="theStory">junk</p>
+        <p></p>
+        <p id="theStory"></p>
         <button id="again">Again?</button>
     </div>
     <script>
@@ -63,37 +87,91 @@ reseting the form to try again
         var warning = document.querySelector("#warning");
 
         var submit = document.querySelector("#submit");
+        submit.style.cursor = "pointer";
+        
         submit.addEventListener("click", writeStory, false);
 
         var again = document.querySelector("#again");
         again.addEventListener("click", resetPage, false);
+        again.style.cursor = "pointer";
 
-        document.querySelector('#firstName').focus();
+        document.querySelector('#bird').focus();
 
-        var firstName = document.querySelector('#firstName');
-        var favColor = document.querySelector("#favColor");
-        var place = document.querySelector('#place');
+        var bird = document.querySelector('#bird');
+        var dogbreed = document.querySelector("#dogbreed");
         var theStory = document.querySelector("#theStory");
 
         window.addEventListener("keydown", keydownHandler, false);
+        
+        bird.focus();
+        
+        //Sets whether initial panels display
+        inputPanel.className = "displayBlock";
+        outputPanel.className = "displayNone";
+        warning.className = "displayNone";
 
         function keydownHandler(event) {
+            if (event.keyCode === 13){ //enter is pressed
                 console.log("Enter key pressed");
-
+                writeStory();
+            }
         }
 
         function checkComplete() {
             //verify the user filled in the form
-
+            //alert
+            //calling function makes true/false if form is complete
+            
+            var warningText = "Please provide: ";
+            var warningArray = [];
+            if (bird.value == ""){
+                warningArray.push("Bird type");
+            }
+            if (dogBreed.value == ""){
+                warningArray.push("Dog Breed");
+            }
+            
+            if (warningArray.length !==0){
+                warningText += warningArray.join (", ");
+                warning.innerHTML = warningText:
+                return false;
+            }else{
+                return true;
+            }
         }
+            
+           
+            
+            
+        
 
         function writeStory() {
             //grab the input values to write the story
-
+            if (checkComplete() == true) {    
+            
+            var finishedStory = ""; 
+            finishedStory += "<p>So, yesterday I was at " + bird.value +"dale mall, with Becky " + dogbreed.value +"schmidt, shopping for scrunchies and </p>"
+            
+            theStory.innerHTML = finishedStory;
+            
+            //switches the panels so output displays
+            inputPanel.className = "displayNone";
+            outputPanel.className = "displayBlock";
+            
+       }else{
+           console.log("the form was not complete");
+           warning.className = "displayBlock";
+           
        }
+        }
 
         function resetPage() {
-            //put stuff here to reset the page so the user can try again
+            inputPanel.className = "displayBlock";
+            outputPanel.className = "displayNone";
+            bird.value = "";  //resets form to no value
+            dogBreed.value = "";
+            
+            bird.focus();
 
         }
     </script>
