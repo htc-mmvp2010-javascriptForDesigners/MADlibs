@@ -24,17 +24,15 @@ reseting the form to try again
     <meta charset="UTF-8">
     <style>
         body {
-            background-color: rgb(100,100,100);
-                       background-color: rgb(100,100,100);
+            background-color: rgb(100, 100, 100);
+            background-color: rgb(100, 100, 100);
             background-image: url("universewhite.png");
             background-repeat: no-repeat;
             background-position: right top;
-    color: white;
+            color: white;
         }
-#inputPanel {
-        padding: 0px 0px 0px 25px;
- 
-           
+        #inputPanel {
+            padding: 0px 0px 0px 25px;
         }
         .displayNone {
             display: none;
@@ -42,43 +40,36 @@ reseting the form to try again
         .displayBlock {
             display: block;
         }
-        
-button{
-    border-style: none;
-    color: white;
-    background-color: #5FF293;
-    font-family: "2Dumb";
-    font-size: 12pt;
-    padding: 5px 17px 5px 17px;
-    border-radius: 15px;
-    cursor: pointer;
-
-}
-        
-#outputPanel {
-            border: ;
-            background-color: rgba(255,255,255,.1);
-
-           
+        button {
+            border-style: none;
+            color: white;
+            background-color: #5FF293;
+            font-family: "2Dumb";
+            font-size: 12pt;
+            padding: 5px 17px 5px 17px;
+            border-radius: 15px;
+            cursor: pointer;
         }
-        
-h3 {
-    font-family: "2Dumb";
-    font-size: 25pt;
-    color: white;
-}
-        
-p {
-    font-family: "2Dumb";
-    font-size: 12pt;
-}
-        
-#storytitle {
-    font-family: "2Dumb";
-    font-size: 25pt;
-    color: white;
-}
-   </style>
+        #outputPanel {
+            border: ;
+            background-color: rgba(0, 0, 0, .5);
+            padding: 0px 0px 10px 25px;
+        }
+        h3 {
+            font-family: "2Dumb";
+            font-size: 25pt;
+            color: white;
+        }
+        p {
+            font-family: "2Dumb";
+            font-size: 12pt;
+        }
+        #storytitle {
+            font-family: "2Dumb";
+            font-size: 25pt;
+            color: white;
+    
+    </style>
 </head>
 
 <body>
@@ -91,46 +82,46 @@ p {
         <p>Your last name:
             <input id="lastName" type="text" placeholder="last name">
         </p>
-        <p>Verb (Present Participle):
-            <input id="verb1" type="text" placeholder="verb (present participle)">
+        <p>Verb (Past Participle):
+            <input id="verb1" type="text" placeholder="verb (past participle)">
         </p>
-        <p>Noun (Plural):
-            <input id="noun1" type="text" placeholder="noun (plural)">
+        <p>Name of a planet:
+            <input id="planet1" type="text" placeholder="planet name">
         </p>
-        
-               <p>Another Noun:
-            <input id="noun2" type="text" placeholder="noun">
+
+        <p>Name of a different planet:
+            <input id="planet2" type="text" placeholder="planet name">
         </p>
-        
-               <p>Verb:
-            <input id="verb2" type="text" placeholder="verb">
+
+        <p>Verb (Past Participle):
+            <input id="verb2" type="text" placeholder="verb (past participle)">
         </p>
-        
-               <p>Adverb:
+
+        <p>Adverb:
             <input id="adverb1" type="text" placeholder="adverb">
         </p>
-        
-               <p>Noun (Plural):
+
+        <p>Noun (Plural):
             <input id="noun3" type="text" placeholder="noun (plural)">
         </p>
-        
-               <p>Yet another noun (Plural):
+
+        <p>Yet another noun (Plural):
             <input id="noun4" type="text" placeholder="noun (plural)">
         </p>
-        
-               <p>Verb (Present Participle):
-            <input id="verb3" type="text" placeholder="verb">
+
+        <p>Verb (Past Participle):
+            <input id="verb3" type="text" placeholder="verb (past participle)">
         </p>
-        
-              <p id="warning">*Please fill in all fields.</p>    
+
+        <p id="warning">*Please fill in all fields.</p>
         <button id="submit">Submit</button>
-    
+
 
     </div>
     <div id="outputPanel">
         <p id="storytitle">Your Story...</p>
         <p id="theStory"></p>
-        <button id="again">Again?</button>
+        <button id="again">Restart?</button>
     </div>
     <script>
         var inputPanel = document.querySelector("#inputPanel");
@@ -148,48 +139,117 @@ p {
         var firstName = document.querySelector('#firstName');
         var lastName = document.querySelector('#lastName');
         var verb1 = document.querySelector("#verb1");
-        var noun1 = document.querySelector('#noun1');
-        var noun2 = document.querySelector('#noun2');
+        var planet1 = document.querySelector('#planet1');
+        var planet2 = document.querySelector('#planet2');
         var verb2 = document.querySelector('#verb2');
         var adverb1 = document.querySelector('#adverb1');
         var noun3 = document.querySelector('#noun3');
         var noun4 = document.querySelector('#noun4');
         var verb3 = document.querySelector('#verb3');
+        var storyState = "Start";
         var theStory = document.querySelector("#theStory");
 
         window.addEventListener("keydown", keydownHandler, false);
 
+        inputPanel.className = "displayBlock";
+        outputPanel.className = "displayNone";
+        warning.className = "displayNone";
+
         function keydownHandler(event) {
+            if (event.keyCode === 13) {
                 console.log("Enter key pressed");
+                if (storyState == "Start") {
+                    writeStory();
+                }
+                else if (storyState == "Finished"){
+                    resetPage();
+                }
+
+
+            }
+
 
         }
 
         function checkComplete() {
             //verify the user filled in the form
+            if (firstName.value == "") {
+                //alert("First name?");
+                return false;
+            } else if (lastName.value == "") {
+                //alert("Last name?");
+                return false;
+            } else if (verb1.value == "") {
+                //alert("Verb?");
+                return false;
+            } else if (planet1.value == "") {
+                //alert("Name a Planet?");
+                return false;
+            } else if (planet2.value == "") {
+                // alert("Name another planet?");
+                return false;
+            } else if (verb2.value == "") {
+                //alert("Verb?");
+                return false;
+            } else if (adverb1.value == "") {
+                //alert("Adverb?");
+                return false;
+            } else if (noun3.value == "") {
+                //alert("Noun?");
+                return false;
+            } else if (noun4.value == "") {
+                //alert("Noun?");
+                return false;
+            } else if (verb3.value == "") {
+                //alert("Verb?");
+                return false;
+            } else {
+                return true;
+            }
 
         }
 
         function writeStory() {
-            theStory.innerHTML= firstName.value + " " + lastName.value + "'s amazing rendition of Across The Universe by The Beatles: <br><br> Words are " + verb1.value + " out like endless " + noun1.value + " into a " + noun2.value + "<br> They " + verb2.value + " " + adverb1.value + " as they slip away across the universe. <br> Pools of " + noun3.value + " waves of " + noun4.value + " are drifting through my opened mind, possessing and " + verb3.value + " me. <br>Jai Guru Deva OM, Nothing's gonna change my world";
+            if (checkComplete() == true) { //remember checkComplete is the form validation
+                //grab the input values to write the story
+                //setting finishedStory to an empty string will guarantee
+                //it shows up empty each time the user enters a story
+                var finishedStory = "";
+                theStory.innerHTML = firstName.value + " " + lastName.value + " " + verb1.value + " to " + planet1.value + " and " + planet2.value + ".<p> While " + firstName.value + " was there they " + verb2.value + " " + adverb1.value + " by the " + noun3.value + " , the name of the inhabitants on that planet. <p> The " + noun4.value + " on those planets " + verb3.value + " because they have a mind of their own.";
 
+                storyState="Finished";
+                //THIS WAS ADDED IN CLASS -TAKE UT IF DOESNT WORK
+                inputPanel.className = "displayNone";
+                outputPanel.className = "displayBlock";
+
+            } else {
+                alert("The form was not complete. Please fill in all fields");
+
+            }
             //grab the input values to write the story
 
-       }
+        }
 
         function resetPage() {
             theStory.innerHTML = "";
-            firstName.value="";
-            lastName.value="";
-            noun1.value="";
-            noun2.value="";
-            noun3.value="";
-            noun4.value="";
-            verb1.value="";
-            verb2.value="";
-            verb3.value="";
-            adverb1.value="";
-            
-            
+            firstName.value = "";
+            lastName.value = "";
+            planet1.value = "";
+            planet2.value = "";
+            noun3.value = "";
+            noun4.value = "";
+            verb1.value = "";
+            verb2.value = "";
+            verb3.value = "";
+            adverb1.value = "";
+
+            //The below was added from branch 3//
+            inputPanel.className = "displayBlock";
+            outputPanel.className = "displayNone";
+            firstName.value = "";
+            storyState ="Start";
+
+
             //put stuff here to reset the page so the user can try again
 
         }
