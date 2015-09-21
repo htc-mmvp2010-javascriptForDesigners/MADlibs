@@ -1,21 +1,3 @@
-<!--
-making MadLIBs
-how do we show/hide? display. visibility
-reference the core concept topics to assist you
-22 innerHTML
-25 events
-26 removals
-29 entering Text
-23 change CSS
-className=""
-display vs visibility
-28 enter key
-focus() blur()
-cursor pointer
-preventing empty inputs
-reseting the form to try again
--->
-
 <!DOCTYPE html>
 <html>
 
@@ -24,8 +6,8 @@ reseting the form to try again
     <meta charset="UTF-8">
     <style>
         div {
-            border: 1px solid red;
-            background-color: #c7af90;
+            border: 1px solid blue;
+            background-color: #00ff00;
         }
         .displayNone {
             display: none;
@@ -61,43 +43,89 @@ reseting the form to try again
         var inputPanel = document.querySelector("#inputPanel");
         var outputPanel = document.querySelector("#outputPanel");
         var warning = document.querySelector("#warning");
-
         var submit = document.querySelector("#submit");
+        submit.style.cursor = "pointer";
         submit.addEventListener("click", writeStory, false);
-
         var again = document.querySelector("#again");
         again.addEventListener("click", resetPage, false);
-
+        again.style.cursor = "pointer";
         document.querySelector('#firstName').focus();
-
         var firstName = document.querySelector('#firstName');
         var favColor = document.querySelector("#favColor");
         var place = document.querySelector('#place');
         var theStory = document.querySelector("#theStory");
-
         window.addEventListener("keydown", keydownHandler, false);
-
+        firstName.focus();
+        //set the initial display of panels.
+        inputPanel.className = "displayBlock";
+        outputPanel.className = "displayNone";
+        warning.className = "displayNone";
         function keydownHandler(event) {
+            if (event.keyCode === 13) {
                 console.log("Enter key pressed");
-
+                writeStory();
+            }        
         }
-
         function checkComplete() {
             //verify the user filled in the form
-
+            //calling this function returns either boolean
+            //if the validation is complete we get TRUE
+            //otherwise it returns a FALSE value
+            //alerts are the easy way
+            //we could just toggle the warning paragraph
+            //or you could provide the details to the user
+            //as to which inputs were missing
+            var warningText = "Please provide: ";
+            var warningArray = [];
+            if (firstName.value == ""){
+                 warningArray.push("Name");
+            }
+            if (favColor.value == ""){
+                warningArray.push("Color");
+            }
+            if (place.value == ""){
+                warningArray.push("Place");
+            }
+            if (warningArray.length !== 0){
+                //join prints out the array with the specified delimiter
+                warningText += warningArray.join(", ");
+                warning.innerHTML = warningText;
+                return false;
+            }else {
+                return true;
+            }
         }
-
         function writeStory() {
-            //grab the input values to write the story
-
+            //verify the form before writing the story
+            if (checkComplete() == true){//remember checkComplete is the form validation
+                //grab the input values to write the story
+                //setting finishedStory to an empty string will guarantee
+                //it shows up empty each time the user enters a story
+                var finishedStory = "";
+                finishedStory += "<p>Hello, " + firstName.value + ". ";
+                finishedStory += "Strange frogs enjoy the color " + favColor.value + " and often eat foods the same color.</p>";
+                finishedStory += "<p>If you care to visit them they usually reside in " + place.value + " not sure how safe of a place it is.</p>";
+                //do not add too many items in a single line or the code likes to break
+                theStory.innerHTML = finishedStory;
+                inputPanel.className = "displayNone";
+                outputPanel.className = "displayBlock";
+                warning.className = "displayNone";
+            }else {
+                console.log("the form was not complete");
+                warning.className = "displayBlock";
+            }
        }
-
         function resetPage() {
             //put stuff here to reset the page so the user can try again
-
+            inputPanel.className = "displayBlock";
+            outputPanel.className = "displayNone";
+            warning.className = "displayNone";
+            firstName.value = "";
+            favColor.value = "";
+            place.value = "";
+            firstName.focus();
         }
     </script>
 </body>
 
 </html>
-
