@@ -39,19 +39,16 @@
         }
 
         function writeStory() {
+            inputPanel.className = "displayNone";
+        outputPanel.className = "displayBlock";
             //grab the input values to write the story
             console.log("submit button works");
             theStory.innerHTML="Hello, " + someonesName.value + " this is " + yourName.value + " I think I have a touch of that " + bodyPart.value + " bug that's been going around and I'm " + adjectiveOne.value + ". I won't be able to come in. I'll try to make it in by " + reasonableHour.value + ", but if not, I'll " + verb.value + " and get " + noun.value + " done at " + place.value + ". " + " Here's hoping I'll be " + adjectiveTwo.value + " enough to come in " + weekDay.value + ".";
 
-        inputPanel.className = "displayNone";
-        outputPanel.className = "displayBlock";
+        
 
-        }else {
-                //warning.className = "displayBlock";
-                alert("Answer all the questions or you're off to the forbidden forest!");
-
-            }
-       }
+        }
+       
 
 
         function resetPage() {
