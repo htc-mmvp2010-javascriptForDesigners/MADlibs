@@ -1,0 +1,69 @@
+/*Anthony's CSS*/
+
+/*Input and Outbox*/
+#inputPanel {
+ 	background-color: #142966;
+ 	padding-bottom: 30px;
+}
+/*Display Input and Output on and off*/
+
+.displayNone {
+    display: none;
+}
+.displayBlock {
+    display: block;
+}
+
+#heading{
+	background-color: #142966;
+	color: #ABCCED;
+	font-family: Papyrus;
+	font-size: 32px;
+	margin:25px;
+	margin-bottom: 0px;
+ 	padding: 20px 20px 2px 20px;
+}
+
+div .inputBox {
+	background-color: #142966;
+ 	color: #ABCCED;
+ 	margin:25px;
+ 	padding: 20px;
+ 	padding-top: 2px;
+	font-family: Papyrus;
+	width: 40%;
+	float: center;
+	margin-top: 0px;
+}
+
+#inputBoxHeading {
+	color: #FFFF80;
+}
+
+.inputBox input {
+float: right;
+width: 200px;
+padding-left: 10px;
+}
+
+#warning {
+	color: #FFFF80;
+}
+
+#sleepImg{
+text-align: center;
+}
+
+div #outputPanel {
+ 	background-color: white;
+ 	color: black;
+ 	border: 5px solid black;
+ 	font-family: 'Comic Sans MS';
+ 	padding: 30px;
+ 	margin: 30px;
+}
+
+body {
+	background-color: #142966;
+}
+

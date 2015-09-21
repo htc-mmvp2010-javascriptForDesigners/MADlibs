@@ -1,0 +1,110 @@
+<!--
+making MadLIBs
+how do we show/hide? display. visibility
+reference the core concept topics to assist you
+22 innerHTML
+25 events
+26 removals
+29 entering Text
+23 change CSS
+className=""
+display vs visibility
+28 enter key
+focus() blur()
+cursor pointer
+preventing empty inputs
+reseting the form to try again
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Day Dream</title>
+    <meta charset="UTF-8">
+    <link href ="css/main.css" rel="stylesheet" type="text/css"/>
+<!--Author: Anthony Emmons 
+    Assignment: MadLibs
+-->
+
+<!--     <style>
+        div {
+            border: 1px solid red;
+            background-color: #c7af90;
+        }
+        .displayNone {
+            display: none;
+        }
+        .displayBlock {
+            display: block;
+        }
+   </style> -->
+</head>
+
+<body>
+
+    <!--Input Boxes-->
+        <div id="inputPanel">
+
+        <div id="heading"><h1>Day Dream</h1></div>
+
+        
+        <div class="inputBox">
+
+        <div id="inputBoxHeading"><h2>Please enter an answer in the following fields</h2></div>
+
+        <p>Person or Thing:
+            <input id="personThing" type="text" placeholder="person, or 'my' thing">
+        </p>
+        <p>Public Event or Activity:
+            <input id="eventActivity" type="text" placeholder="'the' public event, or activity">
+        </p>
+        <p>Place or Building:
+            <input id="placeBuilding" type="text" placeholder="name of a place or building">
+        </p>
+        <p>Color:
+            <input id="color" type="text" placeholder="color">
+        </p>
+        <p>Vehicle or Animal:
+            <input id="vehicleAnimal" type="text" placeholder="enter a vehicle or animal">
+        </p>
+        <p>Eat or Drink:
+            <input id="eatDrink" type="text" placeholder="pick either 'eat' or 'drink' ">
+        </p>
+        <p>Food, Beverage, or Small Item:
+            <input id="foodBevItem" type="text" placeholder="food, beverage, or small item">
+        </p>
+        <p>Adjective:
+            <input id="adjective" type="text" placeholder="adjective (descriptive word)">
+        </p>
+        <p>Vehicle or Animal:
+            <input id="vehicleAnimalTwo" type="text" placeholder="enter a vehicle or animal">
+        </p>
+        <p>Sound:
+            <input id="sound" type="text" placeholder="name a sound or noise">
+        </p>
+        
+
+
+        <button id="finished">Finished</button>
+        <h2 id="warning">All fields must be filled</h2>
+    </div>
+    </div>
+
+    <!-- Story Box-->
+    <div>
+        <div id="outputPanel">
+        <div id="sleepImg"><img src="images/sleeping.jpg" alt ="Marty McFly Sleeping" width="50%" style ="border-radius: 15px"/></div>
+        <h3>Your story....</h3>
+        <p id="theStory">junk</p>
+        <button id="startOver">Start Over?</button>
+    </div>
+    </div>
+
+    <script src="js/main.js">
+
+    </script>
+</body>
+
+</html>
+
