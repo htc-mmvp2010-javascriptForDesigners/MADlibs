@@ -22,10 +22,19 @@ reseting the form to try again
 <head>
     <title>Master MadLib</title>
     <meta charset="UTF-8">
-    <style>
+    <style type="text/css">
+	
         div {
-            border: 1px solid red;
-            background-color: #c7af90;
+            border: 3px solid black;
+            //background-color: rgb(125, 186, 240);
+			font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+			font-size:36px;
+			background-image: url(map.jpg);
+			//background-clip:content-box;
+			background-size: contain;
+			//opacity: 0.6; 
+			//background-repeat: repeat-x;
+	
         }
         .displayNone {
             display: none;
@@ -38,24 +47,59 @@ reseting the form to try again
 
 <body>
     <div id="inputPanel">
-        <h3>A few questions for you</h3>
-        <p>A first name:
-            <input id="firstName" type="text" placeholder="first name">
+        <h3>A Mad Lib Kind of Day</h3>
+        
+        <p>A family member:
+            <input id="family" type="text" placeholder="family">
         </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
+        
+        <p>A big social event:
+            <input id="social" type="text" placeholder="social">
         </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
+        
+        <p>Your dream vehicle:
+            <input id="vehicle" type="text" placeholder="vehicle">
         </p>
-        <button id="submit">Submit your answers</button>
+        
+        <p>A type of tree:
+            <input id="tree" type="text" placeholder="tree">
+        </p>
+        
+        <p>A type of material:        
+          <input id="material" type="text" placeholder="material">
+        </p>
+        
+        <p>An article of clothing:
+            <input id="clothing" type="text" placeholder="clothing">
+        </p>
+        
+        <p>Name of a President:        
+             <input id="president" type="text" placeholder="president">
+        </p>
+        
+        <p>An adjective:
+            <input id="adjective" type="text" placeholder="adjective">
+        </p>
+        
+        <p>A noun:
+            <input id="noun" type="text" placeholder="noun">
+        </p>
+        
+        <p>A verb:
+            <input id="verb" type="text" placeholder="verb">
+        </p>
+        
+        
+        
+        <button id="submit">Submit Answers</button>
         <p id="warning">Please answer all questions.</p>
 
     </div>
-    <div id="outputPanel">
-        <p>Your story....</p>
-        <p id="theStory">junk</p>
-        <button id="again">Again?</button>
+    <div id"outputPanel">
+        <p>Your Mad Lib Story</p>
+        <p id="theStory"></p>
+
+        <button id="again">New MadLib?</button>
     </div>
     <script>
         var inputPanel = document.querySelector("#inputPanel");
@@ -68,35 +112,107 @@ reseting the form to try again
         var again = document.querySelector("#again");
         again.addEventListener("click", resetPage, false);
 
-        document.querySelector('#firstName').focus();
+        document.querySelector('#family').focus();
 
-        var firstName = document.querySelector('#firstName');
-        var favColor = document.querySelector("#favColor");
-        var place = document.querySelector('#place');
+        var family = document.querySelector('#family');
+        var social = document.querySelector("#social");
+        var vehicle = document.querySelector('#vehicle');
+        var tree = document.querySelector('#tree');
+        var material = document.querySelector('#material');
+        var clothing = document.querySelector("#clothing");
+        var president = document.querySelector('#president');
+        var adjective = document.querySelector('#adjective');
+		var noun = document.querySelector('#noun');
+        var verb = document.querySelector('#verb');
+		
         var theStory = document.querySelector("#theStory");
 
         window.addEventListener("keydown", keydownHandler, false);
+		
+		inputPanel.questions = "displayBlock";
+        outputPanel.answers = "displayNone";
+        warning.className = "displayNone";
 
         function keydownHandler(event) {
+                if (event.keyCode === 13) {
                 console.log("Enter key pressed");
+                writeStory();
+            }  
 
         }
 
         function checkComplete() {
             //verify the user filled in the form
-
+           if (family.value == ""){
+                alert("Family Member?");
+                return false;
+            }else if (social.value == ""){
+                alert("Event?");
+                return false;
+            }else if (vehicle.value == ""){
+                alert("Vehicle?");
+                return false;
+		    }else if (tree.value == ""){
+                alert("Tree?");
+                return false;
+			}else if (material.value == ""){
+                alert("Material?");
+                return false;
+			}else if (clothing.value == ""){
+                alert("Clothing?");
+                return false;
+			}else if (president.value == ""){
+                alert("President?");
+                return false;
+			}else if (adjective.value == ""){
+                alert("Adjective?");
+                return false;
+			}else if (noun.value == ""){
+                alert("Noun?");
+                return false;
+			}else if (verb.value == ""){
+                alert("Verb?");
+                return false;
+            }else {
+                return true;
+            }
         }
 
         function writeStory() {
-            //grab the input values to write the story
+			
+			        //You were trying to get to your <input id="family" type="text" placeholder="family">'s <input id="event" type="text" placeholder="event"> in your <input id="vehicle" type="text" placeholder="vehicle"> when you realized you were lost so you pulled over onto <input id="tree" type="text" placeholder="tree"> street to look at your map. Just then, a man with a <input id="material" type="text" placeholder="material"> <input id="clothing" type="text" placeholder="clothing"> approached your car and asked for directions to <input id="president" type="text" placeholder="president"> Avenue. Before you were able to reply, a <input id="adjective" type="text" placeholder="adjective"> <input id="noun" type="text" placeholder="noun"> ran right into the poor man so you decided to just <input id="verb" type="text" placeholder="verb"> back home for the day.
+			
+			
+			
+ var finishedStory = "";
+            finishedStory += "<p>You were trying to get to your " + family.value + " 's " + social.value + " in your " +              vehicle.value + " when you realized you were lost.";
+            finishedStory += "You pulled over onto " + tree.value + " street to look at your map.</p>";
+            finishedStory += "<p>Just then, a man with a  " + material.value + " " + clothing.value + " approached your car              and asked for directions to " + president.value + " Avenue.</p>";
+            finishedStory += "<p>Before you were able to reply, a " + adjective.value + " " + noun.value + " ran right into              the poor man so you decided to just " + verb.value + " home for the day.</p>";
+            theStory.innerHTML = finishedStory;
+			
+			 inputPanel.questions = "displayNone";
+             outputPanel.answers = "displayBlock";
 
        }
 
         function resetPage() {
             //put stuff here to reset the page so the user can try again
-
+            inputPanel.questions = "displayBlock";
+            outputPanel.answers = "displayNone";
+            family.value = "";
+            social.value = "";
+            vehicle.value = "";
+			tree.value = "";
+            material.value = "";
+            clothing.value = "";
+			president.value = "";
+            adjective.value = "";
+            noun.value = "";
+			verb.value = "";
         }
     </script>
+    
 </body>
 
 </html>
