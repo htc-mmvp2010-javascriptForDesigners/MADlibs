@@ -69,18 +69,38 @@ reseting the form to try again
             <input id="bird" type="text" placeholder="bird type">
         </p>
         <p>A breed of dog:
-            <input id="dogbreed" type="text" placeholder="dog breed">
+            <input id="dogBreed" type="text" placeholder="dog breed">
         </p>
+        <p>A kind of '90s clothing:
+            <input id="ninety" type="text" placeholder="'90s clothing"></p>
+        <p>A type of pasta:
+            <input id="pasta" type="text" placeholder="pasta type"></p>
+        <p>Any number
+            <input id="guys" type="text" placeholder="any number"></p>
+        <p>Something gross:
+            <input id="garbage" type="text" placeholder="something gross"></p>
+        <p>A noun
+            <input id="noun" type="text" placeholder="a noun"></p>
+        <p>Another noun
+            <input id="noun2" type="text" placeholder="another noun"></p>
+        <p>A vegetable
+            <input id="veg" type="text" placeholder="a vegetable"></p>
+        <p>Another number
+            <input id="sec" type="text" placeholder="another number"></p>
+        <p>Ok, one more number
+            <input id="number" type="text" placeholder="ok, one more number"></p>
         
         <button id="submit">All finished!</button>
         <p id="warning">Hey, so everyone is waiting on you to finish.</p>
 
     </div>
+    
     <div id="outputPanel">
         <p></p>
         <p id="theStory"></p>
         <button id="again">Again?</button>
     </div>
+    
     <script>
         var inputPanel = document.querySelector("#inputPanel");
         var outputPanel = document.querySelector("#outputPanel");
@@ -95,10 +115,18 @@ reseting the form to try again
         again.addEventListener("click", resetPage, false);
         again.style.cursor = "pointer";
 
-        document.querySelector('#bird').focus();
+        document.querySelector("#bird").focus();
 
-        var bird = document.querySelector('#bird');
-        var dogbreed = document.querySelector("#dogbreed");
+        var bird = document.querySelector("#bird");
+        var dogBreed = document.querySelector("#dogBreed");
+        var ninety = document.querySelector("#ninety");
+        var pasta = document.querySelector("#pasta");
+        var guys = document.querySelector("#guys");
+        var garbage = document.querySelector("#garbage");
+        var noun = document.querySelector("#noun");
+        var noun2 = document.querySelector("#noun2");
+        var sec = document.querySelector("#sec");
+        var number = document.querySelector("#number");
         var theStory = document.querySelector("#theStory");
 
         window.addEventListener("keydown", keydownHandler, false);
@@ -121,23 +149,43 @@ reseting the form to try again
             //verify the user filled in the form
             //alert
             //calling function makes true/false if form is complete
-            
-            var warningText = "Please provide: ";
-            var warningArray = [];
             if (bird.value == ""){
-                warningArray.push("Bird type");
-            }
-            if (dogBreed.value == ""){
-                warningArray.push("Dog Breed");
-            }
-            
-            if (warningArray.length !==0){
-                warningText += warningArray.join (", ");
-                warning.innerHTML = warningText:
+                alert("Kind of bird?");
                 return false;
-            }else{
+            }else if (dogBreed.value == ""){
+                alert("Breed of dog?");
+                return false;
+            }else if ( ninety.value == ""){
+                alert("Nineties clothing?");
+                return false;
+            }else if ( pasta.value == ""){
+                alert("Kind of pasta?");
+                return false;
+            }else if ( guys.value == ""){
+                alert("A number?");
+                return false;
+            }else if ( garbage.value == ""){
+                alert("Something gross?");
+                return false;
+            }else if ( noun.value == ""){
+                alert("A noun?");
+                return false;
+            }else if ( noun2.value == ""){
+                alert("Another noun?");
+                return false;
+            }else if ( veg.value == ""){
+                alert("A vegetable");
+                return false;
+            }else if ( sec.value == ""){
+                alert("A number?");
+                return false;
+            }else if ( number.value == ""){
+                alert("Another number?");
+                return false;
+            }else {
                 return true;
             }
+         
         }
             
            
@@ -150,7 +198,10 @@ reseting the form to try again
             if (checkComplete() == true) {    
             
             var finishedStory = ""; 
-            finishedStory += "<p>So, yesterday I was at " + bird.value +"dale mall, with Becky " + dogbreed.value +"schmidt, shopping for scrunchies and </p>"
+            finishedStory += "<p>So, yesterday I was at " + bird.value +"dale mall, with Becky " + dogBreed.value +"schmidt, shopping for scrunchies and " + ninety.value + ", when who did we see, but Tiffany " + pasta.value + "vermacelli.</p>";
+            finishedStory += "<p>She was with like, " + guys.value + ", and she kept giving us " + garbage.value + " looks and flipping her hair every 5 seconds. </p>";
+            finishedStory += "<p>She thinks it's so great, just because she got it dyed at " + noun.value + " " + noun2.value + " Salon, which she says the color is Machiatto, but looks more like " + veg.value + "-blond to me. Right?!</p>";
+            finishedStory += "<p>Yeah, so we were totally trying to walk past her because she's super annoying, but she turns around and must be doing like squats every " + sec.value + " seconds, because her butt was like, " + number.value + " bigger than the rest of her body.So we were like, 'whatever' and went and got some froyo.</p>"; 
             
             theStory.innerHTML = finishedStory;
             
@@ -168,8 +219,18 @@ reseting the form to try again
         function resetPage() {
             inputPanel.className = "displayBlock";
             outputPanel.className = "displayNone";
+            warning.classNme = "displayNone";
             bird.value = "";  //resets form to no value
             dogBreed.value = "";
+            ninety.value = "";
+            pasta.value = "";
+            guys.value = "";
+            garbage.value = "";
+            noun.value = "";
+            noun2.value = "";
+            veg.value = "";
+            sec.value = "";
+            number.value = "";
             
             bird.focus();
 
