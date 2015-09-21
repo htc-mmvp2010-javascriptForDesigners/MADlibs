@@ -2,6 +2,8 @@
         var inputPanel = document.querySelector("#inputPanel");
         var outputPanel = document.querySelector("#outputPanel");
         var warning = document.querySelector("#warning");
+   inputPanel.className = "displayBlock";
+        outputPanel.className = "displayNone";
 
         var submit = document.querySelector("#submit");
         submit.addEventListener("click", writeStory, false);
@@ -39,13 +41,24 @@
         }
 
         function writeStory() {
-            inputPanel.className = "displayNone";
-        outputPanel.className = "displayBlock";
+       
             //grab the input values to write the story
             console.log("submit button works");
-            theStory.innerHTML="Hello, " + someonesName.value + " this is " + yourName.value + " I think I have a touch of that " + bodyPart.value + " bug that's been going around and I'm " + adjectiveOne.value + ". I won't be able to come in. I'll try to make it in by " + reasonableHour.value + ", but if not, I'll " + verb.value + " and get " + noun.value + " done at " + place.value + ". " + " Here's hoping I'll be " + adjectiveTwo.value + " enough to come in " + weekDay.value + ".";
+            var msg = "Hello, " + someonesName.value;
+            msg += " this is " + yourName.value;
+            msg += " I think I have a touch of that " + bodyPart.value;
+            msg += " bug that's been going around and I'm " + adjectiveOne.value;
+            msg += ". I won't be able to come in. I'll try to make it in by " + reasonableHour.value;
+            msg += ", but if not, I'll " + verb.value;
+            msg += " and get " + noun.value;
+            msg += " done at " + place.value + ". ";
+            msg += " Here's hoping I'll be " + adjectiveTwo.value;
+            msg += " enough to come in " + weekDay.value + ".";
 
-        
+theStory.innerHTML=msg;
+
+           inputPanel.className = "displayNone";
+        outputPanel.className = "displayBlock";
 
         }
        
@@ -56,7 +69,14 @@
               
             inputPanel.className = "displayBlock";
             outputPanel.className = "displayNone";
-            firstName.value = "";
-            favColor.value = "";
+            someonesName.value = "";
+         yourName.value = "";
+         bodyPart.value = ""; 
+            adjectiveOne.value = ""; 
+            reasonableHour.value = ""; 
+            verb.value = ""; 
+            noun.value = ""; 
             place.value = ""; 
+            adjectiveTwo.value = ""; 
+            weekDay.value = ""; 
         }
