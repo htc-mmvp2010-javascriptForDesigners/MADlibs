@@ -14,6 +14,7 @@ focus() blur()
 cursor pointer
 preventing empty inputs
 reseting the form to try again
+Takira Yager
 -->
 
 <!DOCTYPE html>
@@ -22,31 +23,42 @@ reseting the form to try again
 <head>
     <title>Master MadLib</title>
     <meta charset="UTF-8">
-    <style>
-        div {
-            border: 1px solid red;
-            background-color: #c7af90;
-        }
-        .displayNone {
-            display: none;
-        }
-        .displayBlock {
-            display: block;
-        }
-   </style>
+    <link href="css/mad.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="inputPanel">
-        <h3>A few questions for you</h3>
-        <p>A first name:
-            <input id="firstName" type="text" placeholder="first name">
+        <h1 id="wrap">Get Out of Work & Call In Sick</h1>
+       
+     <p>Someones Name:
+            <input id="someonesName" type="text" placeholder="Someones name">
         </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
+        <p>Your Name:
+            <input id="yourName" type="text" placeholder="Your name">
         </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
+        <p>Body Part:
+            <input id="bodyPart" type="text" placeholder="Body part">
+        </p>
+          <p>Adjective:
+            <input id="adjectiveOne" type="text" placeholder="Adjective one">
+        </p>
+          <p>Reasonable Hour:
+            <input id="reasonableHour" type="text" placeholder="Reasonable hour">
+        </p>
+          <p>Verb:
+            <input id="verb" type="text" placeholder="verb">
+        </p>
+          <p>Noun:
+            <input id="noun" type="text" placeholder="Noun">
+        </p>
+          <p>A Place:
+            <input id="place" type="text" placeholder="Place">
+        </p>
+          <p>Adjective:
+            <input id="adjectiveTwo" type="text" placeholder="Adjective two">
+        </p>
+          <p>Week Day:
+            <input id="weekDay" type="text" placeholder="Week Day">
         </p>
         <button id="submit">Submit your answers</button>
         <p id="warning">Please answer all questions.</p>
@@ -54,50 +66,11 @@ reseting the form to try again
     </div>
     <div id="outputPanel">
         <p>Your story....</p>
-        <p id="theStory">junk</p>
+        <p id="theStory"></p>
         <button id="again">Again?</button>
     </div>
-    <script>
-        var inputPanel = document.querySelector("#inputPanel");
-        var outputPanel = document.querySelector("#outputPanel");
-        var warning = document.querySelector("#warning");
+ <script src="js/mad.js"></script> 
 
-        var submit = document.querySelector("#submit");
-        submit.addEventListener("click", writeStory, false);
-
-        var again = document.querySelector("#again");
-        again.addEventListener("click", resetPage, false);
-
-        document.querySelector('#firstName').focus();
-
-        var firstName = document.querySelector('#firstName');
-        var favColor = document.querySelector("#favColor");
-        var place = document.querySelector('#place');
-        var theStory = document.querySelector("#theStory");
-
-        window.addEventListener("keydown", keydownHandler, false);
-
-        function keydownHandler(event) {
-                console.log("Enter key pressed");
-
-        }
-
-        function checkComplete() {
-            //verify the user filled in the form
-
-        }
-
-        function writeStory() {
-            //grab the input values to write the story
-
-       }
-
-        function resetPage() {
-            //put stuff here to reset the page so the user can try again
-
-        }
-    </script>
 </body>
-
 </html>
 
