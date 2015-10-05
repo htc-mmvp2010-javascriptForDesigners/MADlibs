@@ -1,5 +1,5 @@
-<!--
-making MadLIBs
+-<!-- Corean Komarec
+making MadLIBs v2
 how do we show/hide? display. visibility
 reference the core concept topics to assist you
 22 innerHTML
@@ -24,40 +24,150 @@ reseting the form to try again
     <meta charset="UTF-8">
     <style>
         div {
-            border: 1px solid red;
-            background-color: #c7af90;
+            
+            background-color: white;
+
         }
+
+        img {
+                height: 200px;
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                
+
+            }
+       
+
         .displayNone {
             display: none;
         }
         .displayBlock {
             display: block;
         }
-   </style>
+        
+        h1 { color:  #ED1C24;
+            font-family: serif; font-size: 50px;
+            text-align: center;
+        	}
+        
+        h2 { font-family: sans-serif;  
+            font-size: 18px; 
+            color: gray; 
+            text-align:right;  
+            padding-top: 25px;
+            padding-right: 50px;
+            padding-bottom: 10px;
+
+            }
+
+         h3 {font-family: cursive;
+         	color: #ED1C24;
+            font-size: 24px;
+         	text-align: center;
+         	padding-top: 25px;
+         	padding-bottom: 25px;
+            }   
+
+
+
+
+
+        h4 { font-family: sans-serif;  
+            font-size: 18px; 
+            color: gray; 
+            text-align:left;  
+            padding-top: 20px;
+            padding-right: 50px;
+            padding-bottom: 25px;
+
+            }
+
+
+
+        p 	{
+            font-family: fantasy;
+            font-style: oblique;
+            font-size: 16px;
+            text-align: center;
+            color:black;
+            }
+    
+   
+
+    </style>
 </head>
 
 <body>
-    <div id="inputPanel">
-        <h3>A few questions for you</h3>
-        <p>A first name:
-            <input id="firstName" type="text" placeholder="first name">
-        </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
-        </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
-        </p>
-        <button id="submit">Submit your answers</button>
-        <p id="warning">Please answer all questions.</p>
+    <img src="pig.png" alt="pig">
+    
+    <div id="inputPanel"> 
+     <!-- where to ask questions -->
+        <h1>The Seven Commandments</h1>
 
-    </div>
-    <div id="outputPanel">
-        <p>Your story....</p>
-        <p id="theStory">junk</p>
-        <button id="again">Again?</button>
-    </div>
+       
+       <h2>ALL ANIMALS ARE CREATIVE EQUAL.</h2> 
+          
+  
+ 		<h3>Four legs good, two legs bad! Four legs good, two legs bad! Four legs good, two legs bad! Four legs good, two legs bad! Four legs good, two legs bad! Four legs good, two legs bad!</h3>
+
+        
+        <p>1. Whatever goes upon two legs is an 
+            <input id="twoLegs" type="text" placeholder="noun">
+        </p>
+        
+        
+        <p>2. Whatever goes upon four legs, or has wings , is a 
+            <input id="fourLegs" type="text" placeholder="noun">
+        </p>
+        
+        
+        <p>3. No animal shall wear 
+            <input id="wear" type="text" placeholder="noun">
+        </p>
+        
+        
+         <p>4. No animal shall sleep in a 
+            <input id="sleep" type="text" placeholder="noun">
+        </p>
+
+         <p>5. No animal shall drink
+            <input id="drink" type="text" placeholder="noun">
+        </p>
+
+         <p>6. No animal shall kill any other
+            <input id="kill" type="text" placeholder="noun">
+        </p>
+
+         <p>7. All animals are 
+            <input id="all" type="text" placeholder="noun">
+        </p>
+
+
+
+
+     <h3>Now, Comrades, to the hayfield!</h3> 
+        
+      
+        
+        <h4> BUT SOME ARE MORE EQUAL THAN OTHERS. </h4>
+        
+
+    
+      <button id="submit">Submit your answers</button>
+   
+     </div> 
+       
+       	<div id="outputPanel">                                                                                                                                                                                                  
+                    
+
+                    
+        
+                 <button id="again">Again?</button>
+        </div>
+    
     <script>
+        
         var inputPanel = document.querySelector("#inputPanel");
         var outputPanel = document.querySelector("#outputPanel");
         var warning = document.querySelector("#warning");
@@ -68,34 +178,142 @@ reseting the form to try again
         var again = document.querySelector("#again");
         again.addEventListener("click", resetPage, false);
 
-        document.querySelector('#firstName').focus();
+        document.querySelector('#twoLegs').focus();
 
-        var firstName = document.querySelector('#firstName');
-        var favColor = document.querySelector("#favColor");
-        var place = document.querySelector('#place');
-        var theStory = document.querySelector("#theStory");
+        var twoLegs = document.querySelector('#twoLegs');
+        var fourLegs = document.querySelector("#fourLegs");
+        var wear = document.querySelector('#wear');
+        var sleep = document.querySelector("#sleep");
+        var drink = document.querySelector('#drink');
+        var kill = document.querySelector("#kill");
+        var all = document.querySelector('#all');
 
         window.addEventListener("keydown", keydownHandler, false);
 
-        function keydownHandler(event) {
-                console.log("Enter key pressed");
+         inputPanel.className = "displayBlock";
+        outputPanel.className = "displayNone";
+        warning.className = "displayNone";
 
+
+        function keydownHandler(event) {
+                 if (event.keyCode === 13) {
+                console.log("Enter key pressed");
+                writeStory();
         }
+
+       } 
 
         function checkComplete() {
             //verify the user filled in the form
+            //calling this function returns either boolean
+            //if the validation is complete we get TRUE
+            //otherwise it returns a FALSE value
+
+             //alerts are the easy way
+             //we could just toggle the warning paragraph
+            //or you could provide the details to the user
+            //as to which inputs were missing
+            
+            var warningText = "Please provide: ";
+            var warningArray = [];
+            
+
+            if (twoLegs.value == ""){
+                alert("enemy?");
+                return false;
+            }
+           if (fourLegs.value == ""){
+                alert("friend?");
+                return false;
+            }
+          if (wear.value == ""){
+                alert("clothes?");
+                return false;
+             }
+            if (sleep.value == ""){
+                alert("bed?");
+                return false;
+            }
+           if (drink.value == ""){
+                alert("alochol?");
+                return false;
+            }
+             if (kill.value == ""){
+                alert("animal?");
+                return false;
+            }
+            if (all.value == ""){
+                alert("equal?");
+                return false;
+            
+            }
+            else {
+                return true;
 
         }
+    }
 
         function writeStory() {
-            //grab the input values to write the story
+             
+                //verify the form before writing the story
+            if (checkComplete() == true){
+
+                //remember checkComplete is the form validation
+                
+                //grab the input values to write the story
+                //setting finishedStory to an empty string will guarantee
+                //it shows up empty each time the user enters a story
+
+
+            
+            var finishedStory = "";
+            finishedStory += "<p>enemy" + twoLegs.value + "</p>";
+            finishedStory += "<p>friend" + fourLegs.value + "</p>";
+            finishedStory += "<p>clothes" + wear.value + "</p>";
+            finishedStory += "<p>bed" + sleep.value + "</p>";
+            finishedStory += "<p>alochol" + drink.value + "</p>";
+            finishedStory += "<p>animal" + kill.value + "</p>";
+            finishedStory += "<p>equal" + all.value + "</p>";
+
+
+                //do not add too many items in a single line or the code likes to break
+            theStory.innerHTML = finishedStory;
+
+             inputPanel.className = "displayNone";
+             outputPanel.className = "displayBlock";
+             warning.className = "displayNone";
+             console.log("story: "+finishedStory);
+
+
+               }else {
+                console.log("the form was not complete");
+                 warning.className = "displayBlock";
+            }
+
+
+
 
        }
 
         function resetPage() {
-            //put stuff here to reset the page so the user can try again
+                //put stuff here to reset the page so the user can try again
 
+            inputPanel.className = "displayBlock";
+            outputPanel.className = "displayNone";
+            warning.className = "displayNone";
+            twoLegs.value = "";
+            fourLegs.value = "";
+            wear.value = "";
+            sleep.value = "";
+            drink.value = "";
+            kill.value = "";
+            all.value = "";
+
+            twoLegs.focus();
+        
         }
+
+    
     </script>
 </body>
 
