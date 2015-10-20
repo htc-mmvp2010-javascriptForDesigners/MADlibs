@@ -155,12 +155,12 @@ reseting the form to try again
 
     
       <button id="submit">Submit your answers</button>
-   
+   <p id="warning">Please answer all questions.</p>
      </div> 
        
        	<div id="outputPanel">                                                                                                                                                                                                  
                     
-
+<p id="theStory">junk</p>
                     
         
                  <button id="again">Again?</button>
@@ -267,13 +267,13 @@ reseting the form to try again
 
             
             var finishedStory = "";
-            finishedStory += "<p>enemy" + twoLegs.value + "</p>";
-            finishedStory += "<p>friend" + fourLegs.value + "</p>";
-            finishedStory += "<p>clothes" + wear.value + "</p>";
-            finishedStory += "<p>bed" + sleep.value + "</p>";
-            finishedStory += "<p>alochol" + drink.value + "</p>";
-            finishedStory += "<p>animal" + kill.value + "</p>";
-            finishedStory += "<p>equal" + all.value + "</p>";
+            finishedStory += "<p>enemy " + twoLegs.value + "</p>";
+            finishedStory += "<p>friend " + fourLegs.value + "</p>";
+            finishedStory += "<p>clothes " + wear.value + "</p>";
+            finishedStory += "<p>bed " + sleep.value + "</p>";
+            finishedStory += "<p>alochol " + drink.value + "</p>";
+            finishedStory += "<p>animal " + kill.value + "</p>";
+            finishedStory += "<p>equal " + all.value + "</p>";
 
 
                 //do not add too many items in a single line or the code likes to break
@@ -282,7 +282,8 @@ reseting the form to try again
              inputPanel.className = "displayNone";
              outputPanel.className = "displayBlock";
              warning.className = "displayNone";
-             console.log("story: "+finishedStory);
+             
+             // console.log("story: "+finishedStory);
 
 
                }else {
