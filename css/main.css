@@ -4,6 +4,12 @@
 #inputPanel {
  	background-color: #142966;
  	padding-bottom: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
 }
 /*Display Input and Output on and off*/
 
@@ -14,6 +20,7 @@
     display: block;
 }
 
+
 #heading{
 	background-color: #142966;
 	color: #ABCCED;
@@ -22,6 +29,7 @@
 	margin:25px;
 	margin-bottom: 0px;
  	padding: 20px 20px 2px 20px;
+ 	text-align: center;
 }
 
 div .inputBox {
@@ -31,9 +39,10 @@ div .inputBox {
  	padding: 20px;
  	padding-top: 2px;
 	font-family: Papyrus;
-	width: 40%;
-	float: center;
+/*	width: 40%;
+	float: center;*/
 	margin-top: 0px;
+
 }
 
 #inputBoxHeading {
